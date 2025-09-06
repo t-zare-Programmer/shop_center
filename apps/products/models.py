@@ -2,6 +2,9 @@ from datetime import datetime
 from django.db import models
 from django.db import models
 from email.mime import image
+
+from urllib3 import request
+
 from utils import FileUpload
 from django.utils import timezone
 # from ckeditor_uploader.fields import RichTextUploadingField
@@ -142,5 +145,7 @@ class ProductGallery(models.Model):
     class Meta:
         verbose_name = 'تصویر'
         verbose_name_plural = 'تصاویر'
-
-
+#____________________________________________________________________________________
+# میزان امتیازی که کاربر جاری به این کالا داده است
+#     def get_user_score(self):
+#         request = RequestMiddlware

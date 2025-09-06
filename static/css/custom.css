@@ -651,3 +651,7 @@ textarea.form-control.is-invalid,
 .post-header__title {
 	font-family: inherit;
 }
+
+.checked {
+	color: orange;
+}

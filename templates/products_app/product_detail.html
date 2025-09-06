@@ -323,6 +323,7 @@
 							<div class="product-tabs__pane" id="tab-reviews">
 								<div class="reviews-view">
 									<div class="reviews-view__list">
+                                    
 										<h3 class="reviews-view__header">دیدگاه های مشتریان</h3>
 										<div class="reviews-list">
 											<ol class="reviews-list__content">
@@ -332,24 +333,27 @@
                                                             <li class="reviews-list__item" style="display: flex; justify-content: space-between;">
                                                                 <div class="review">
                                                                     <div class="review__avatar">
-                                                                        <img src="images/avatars/avatar-1.jpg" alt=""></div>
+                                                                        <img src="images/avatars/avatar-1.jpg" alt="">
+                                                                    </div>
                                                                     <div class="review__content">
-                                                                        <div class="review__author">{{ comment.commenting_user.name }}</div>
+                                                                        <div class="review__author">
+                                                                            {{ comment.commenting_user.name }}
+                                                                        </div>
                                                                         <div class="review__text">
                                                                             {{ comment.comment_text }}
                                                                         </div>
                                                                        {% comment %} <div class="review__date">{{ comment.registerdate }}</div> {% endcomment %}         
                                                                     </div>         
                                                                 </div>
-                                                            <div>
-                                                                {% if user.is_authenticated %}
+                                                                <div>
+                                                                    {% if user.is_authenticated %}
                                                                  <div>
                                                                     <a class="btn btn-info" id="btn_{{ comment.id }}" onclick="showCreateCommentForm({{ product.id }},{{ comment.id }},'{{ product.slug }}');">پاسخ</a>
                                                                  </div>
                                                                  <div id="comment_form_{{ comment.id }}">
                                                                  </div>   
                                                                 {% endif %}
-                                                            </div>
+                                                                </div>
                                                             </li>
                                                             {% for item in comment.comments_child.all %}
                                                                 {% if item.is_active %}

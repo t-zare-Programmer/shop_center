@@ -10,8 +10,8 @@ from django.db.models import Q
 
 class CommentView(View):
     def get(self, request, *args, **kwargs):
-        print("=== CommentView GET Called ===")  # تست
-        slug = kwargs.get('slug')
+        # print("=== CommentView GET Called ===")  # تست
+        slug = kwargs['slug']
         productId = request.GET.get('productId')
         commentId = request.GET.get('commentId')
 
