@@ -10,10 +10,12 @@ from django.db.models import Q
 
 class CommentView(View):
     def get(self, request, *args, **kwargs):
+        print("=== CommentView GET Called ===")  # تست
+        slug = kwargs.get('slug')
         productId = request.GET.get('productId')
         commentId = request.GET.get('commentId')
-        slug = request.GET.get('slug')
-        initial_dict = {'productId': productId, 'commentId': commentId}
+
+        initial_dict = {'product_id': productId, 'comment_id': commentId}
         form = CommentForm(initial=initial_dict)
         return render(request,"csf_app/partials/create_comment.html", {'form': form,'slug':slug})
 

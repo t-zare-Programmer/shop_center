@@ -125,3 +125,18 @@ function update_shop_cart(){
         }
     });
 }
+#____________________________________________________________________________
+function showCreateCommentForm(productId,commentId,slug) {
+    $.ajax({
+        type:"GET",
+        url: "/cst/create_comment/" + slug ,
+        data: {
+            productId: productId,
+            commentId: commentId,
+        },
+        success: function (res) {
+            $("#btn_" + commentId).hide();
+            $("#comment_form_" + commentId).html(res);
+        }
+    });
+}
